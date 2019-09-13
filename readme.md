@@ -1,21 +1,26 @@
-# Begin svelte example app
+# Begin basic Svelte app + API
 
-This is a project template for [Svelte](https://svelte.dev) apps on [Begin](https://begin.com). It lives at https://github.com/begin-examples/node-svelte.
+[Svelte](https://svelte.dev)'s starter app, extended by [Begin](https://begin.com)-based API endpoints.
 
 
-## Get started
+## Getting started
 
-Install the dependencies...
-
-```bash
-cd svelte-app
+### Project setup
+```
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
 
-```bash
-npm run dev
+### Start the local dev server
+```
+npm start
 ```
 
 Navigate to [localhost:3333](http://localhost:3333). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+
+
+## Begin Reference
+- [Quickstart](https://docs.begin.com/en/guides/quickstart/) - basics on working locally, project structure, deploying, and accessing your Begin app
+- [Creating new routes](https://docs.begin.com/en/functions/creating-new-functions) - basics on expanding the capabilities of your app
+
+Head to [docs.begin.com](https://docs.begin.com/) to learn more!
