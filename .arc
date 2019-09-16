@@ -1,7 +1,17 @@
+# Warning: do not edit
+# --------------------
+# This is a generated file and will be overwritten
+
 @app
-node-svelte
+begin-app
 
 @static
+
 @http
-get /
 get /api
+
+@tables
+data
+  scopeID *String
+  dataID **String
+  ttl TTL
