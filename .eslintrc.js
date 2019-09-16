@@ -25,9 +25,7 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'no-unused-vars': ['error', { 'args': 'none' }]
   },
-  plugins: [
-    'svelte3'
-  ],
+  plugins: ['svelte3'],
   overrides: [
     {
       files: ['**/*.svelte'],

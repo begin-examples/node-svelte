@@ -1,77 +1,71 @@
 let test = require('tape')
-let sandbox = require('@architect/sandbox')
 let data = require('@begin/data')
-
-test('env', t => {
-  t.plan(4)
-  t.ok(data, 'data')
-  t.ok(data.get, 'data')
-  t.ok(data.set, 'data')
-  t.ok(data.destroy, 'data')
-})
+let sandbox = require('@architect/sandbox')
+let logJSON = i => console.log(JSON.stringify(i,null,2))
 
 /**
- * kick a sandbox up
+ * Begin Data test
+ * - Demonstrates basic usage of Begin Data, a fast, free, durable, wide-column persistence store already built into your app
  */
-let end
-test('sandbox.start', async t=> {
+test('Set up env', t => {
+  t.plan(4)
+  t.ok(data, 'Begin Data loaded')
+  t.ok(data.get, 'data.get ready')
+  t.ok(data.set, 'data.set ready')
+  t.ok(data.destroy, 'data.destroy ready')
+})
+
+let end // Saves a reference to be used later to shut down the sandbox
+test('Start sandbox', async t=> {
   t.plan(1)
   end = await sandbox.start()
-  t.ok(true, 'started sandbox')
+  t.ok(end, 'Sandbox started!')
 })
 
-/**
- * working with one document
- *
- * - set
- * - get
- * - destroy
- */
-
-test('data.set one document', async t => {
+test('data.set (one document)', async t => {
   t.plan(1)
   let result = await data.set({
     table: 'tasks',
     key: 'task1'
   })
-  t.ok(result.key === 'task1', 'wrote document')
-  console.log(result)
+  t.ok(result.key === 'task1', 'Wrote document')
+  logJSON(result,null,2)
 })
 
-test('data.get one document', async t => {
+test('data.get (one document)', async t => {
   t.plan(1)
   let task = await data.get({
     table: 'tasks',
     key: 'task1'
   })
-  t.ok(task.key === 'task1', 'read document')
-  console.log(task)
+  t.ok(task.key === 'task1', 'Read document')
+  logJSON(task,null,2)
 })
 
-test('data.del one document', async t => {
+test('data.destroy (one document)', async t => {
   t.plan(1)
   let result = await data.destroy({
     table: 'tasks',
     key: 'task1'
   })
-  t.ok(result, 'deleted document')
-  console.log(result)
+  t.ok(result, 'Deleted document')
+  logJSON(result,null,2)
 })
 
 /**
- * if no key is supplied one is created
+ * If no key is supplied, one is created automatically
  */
-test('data.set generates a unique key if one is not supplied', async t => {
+test('data.set generates a unique key', async t => {
   t.plan(1)
   let result = await data.set({
     table: 'tasks'
   })
-  t.ok(result.key, 'saved document has a key')
-  console.log(result)
+  t.ok(result.key, 'Saved document has a key')
+  logJSON(result,null,2)
 })
 
 /**
- * Any metadata is fine
+ * Any (meta)data is allowed
  */
 test('data.set allows for any JSON document; only table and key are reserved', async t => {
   t.plan(1)
@@ -81,8 +75,8 @@ test('data.set allows for any JSON document; only table and key are reserved', a
     complete: false,
     timeframe: new Date(Date.now()).toISOString()
   })
-  t.ok(result.key, 'saved document is rich')
-  console.log(result)
+  t.ok(Object.getOwnPropertyNames(result.key).length > 2, 'Saved document has multiple properties')
+  logJSON(result,null,2)
 })
 
 /**
@@ -109,23 +103,23 @@ test('data.set accepts an array to batch save documents', async t => {
     timeframe: new Date(Date.now()).toISOString()
 
   }])
-  t.ok(result.length, 'saved batch')
-  console.log(result)
+  t.equal(result.length, 3, 'Saved document batch')
+  logJSON(result,null,2)
 })
 
+/**
+ * Scan a table
+ */
 test('data.get can read an entire table', async t => {
   t.plan(1)
   let result = await data.get({
     table: 'tasks'
   })
-  t.ok(result, 'got docs')
-  console.log(result)
+  t.ok(result.length > 1, 'Got docs')
+  logJSON(result,null,2)
 })
 
-/**
- * shut down the sandbox cleanly
- */
-test('sandbox.end', async t=> {
+test('Shut down sandbox', async t=> {
   t.plan(1)
   end()
   t.ok(true, 'shutdown')
