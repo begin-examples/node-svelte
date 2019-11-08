@@ -1,5 +1,7 @@
 # Begin basic Svelte app + API
 
+$BADGE
+
 [Svelte](https://svelte.dev)'s starter app, extended by [Begin](https://begin.com)-based API endpoints.
 
 
