@@ -26,7 +26,7 @@
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.12.1",
     "tap-spec": "^5.0.0",
-    "tape": "^4.11.0",
+    "tape": "^4.13.0",
     "tiny-json-http": "^7.1.2"
   }
 }
