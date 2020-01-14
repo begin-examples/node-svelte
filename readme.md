@@ -1,6 +1,6 @@
-<img src="https://static.begin.app/node-svelte/readme-banner.png" width="561">
+<img src="https://static.begin.app/node-svelte/readme-banner.png" width="788">
 
-\$BADGE
+$BADGE
 
 [Svelte](https://svelte.dev)'s starter app, extended by [Begin](https://begin.com)-based API endpoints.
 
