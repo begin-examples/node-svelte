@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@architect/sandbox": "latest",
-    "@begin/data": "^1.1.4",
+    "@begin/data": "^1.1.5",
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-plugin-svelte3": "^2.7.3",
