@@ -30,5 +30,8 @@ jobs:
     - name: Install
       run: npm install
 
+    - name: Lint
+      run: npm lint
+
     - name: Test
       run: npm test
