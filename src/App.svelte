@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte'
-  export let name;
-  export let message;
+  export let name
+  export let message
   onMount(async () => {
     let data = await (await fetch('/api')).json()
     message = data.msg
@@ -24,7 +24,7 @@
     margin: 0 auto;
   }
 
-  h1 { 
+  h1 {
     color: #ff3e00;
     text-transform: uppercase;
     font-size: 4em;
@@ -37,4 +37,3 @@
     }
   }
 </style>
-
