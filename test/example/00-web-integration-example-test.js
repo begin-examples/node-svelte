@@ -51,7 +51,7 @@ test('get / (async/await style)', async t => {
   }
 })
 
-test('Shut down sandbox', async t=> {
+test('Shut down sandbox', async t => {
   t.plan(1)
   let result = await sandbox.end()
   t.equal(result, 'Sandbox successfully shut down')
