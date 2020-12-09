@@ -4,12 +4,9 @@
   "description": "Begin basic Svelte app + API",
   "scripts": {
     "build": "rollup -c",
-    "autobuild": "rollup -c -w",
-    "dev": "run-p start autobuild",
+    "dev": "rollup -c -w",
     "lint": "eslint src --fix",
-    "start": "run-s build sandbox",
-    "sandbox": "npx sandbox",
-    "start:sandbox": "cross-env NODE_ENV=testing ARC_LOCAL=1 npx sandbox",
+    "start": "cross-env NODE_ENV=testing ARC_LOCAL=1 npx sandbox",
     "test": "cross-env NODE_ENV=testing PORT=6666 tape test/*-test.js ./test/**/*-test.js | tap-spec"
   },
   "devDependencies": {
