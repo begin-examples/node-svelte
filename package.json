@@ -13,7 +13,7 @@
     "@architect/sandbox": "latest",
     "@begin/data": "latest",
     "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.17.0",
     "eslint-plugin-svelte3": "",
