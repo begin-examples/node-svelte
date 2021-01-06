@@ -1,5 +1,5 @@
 /node_modules/
 /public/build/
 
-.arc-env
+preferences.arc
 .DS_Store
