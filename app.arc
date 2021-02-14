@@ -1,10 +1,10 @@
 @app
 begin-app
 
-@static
-
 @http
-get /api
+/api
+  method get
+  src api
 
 @tables
 data
