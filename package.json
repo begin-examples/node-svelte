@@ -41,7 +41,7 @@
     "svelte": "^3.35.0"
   },
   "dependencies": {
-    "@architect/sandbox": "^3.3.7",
+    "@architect/sandbox": "^4.0.2",
     "@begin/data": "^1.2.3"
   }
 }
