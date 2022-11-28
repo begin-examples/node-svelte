@@ -42,6 +42,6 @@
   },
   "dependencies": {
     "@architect/sandbox": "^4.1.1",
-    "@begin/data": "^3.0.0"
+    "@begin/data": "^4.0.2"
   }
 }
